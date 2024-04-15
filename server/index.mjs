@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import workoutRoutes from "./routes/workouts.mjs";
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors"; // Import the cors package
 
 dotenv.config();
 
@@ -17,15 +18,11 @@ mongoose
     console.log(error);
   });
 
-// Assuming you're using Express.js
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  // You can set other CORS headers here, such as methods, headers, etc.
-  next();
-});
-
 // middleware
 app.use(express.json());
+
+// Enable CORS
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);

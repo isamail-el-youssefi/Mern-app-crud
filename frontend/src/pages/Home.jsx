@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
+import WourkoutForm from "../components/WourkoutForm";
 
 export default function Home() {
   const [workouts, setWorkouts] = useState(null);
@@ -14,10 +15,9 @@ export default function Home() {
       }
     };
 
+
     fetchWorkouts();
   }, []);
-
-  console.log(workouts[0]._id);
 
   return (
     <div className="home">
@@ -27,6 +27,7 @@ export default function Home() {
             <WorkoutDetails workout={workout} key={index} />
           ))}
       </div>
+      <WourkoutForm />
     </div>
   );
 }
