@@ -17,6 +17,13 @@ mongoose
     console.log(error);
   });
 
+// Assuming you're using Express.js
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  // You can set other CORS headers here, such as methods, headers, etc.
+  next();
+});
+
 // middleware
 app.use(express.json());
 
