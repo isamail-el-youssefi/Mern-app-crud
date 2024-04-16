@@ -3,7 +3,7 @@ import { Workout } from "../models/workoutModel.mjs";
 
 //! GET all workouts
 export const getWorkouts = async (req, res) => {
-  const users = await Workout.find({}).sort({ createdAt: -1 });
+  const users = await Workout.find({});
   if (!users) return res.status(404).json({ mssg: "No workouts found" });
   res.json(users);
 };
